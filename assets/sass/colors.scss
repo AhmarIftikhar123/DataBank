@@ -1,0 +1,141 @@
+// Color Variables
+$orange: #f5652c;
+$white: #ffffff;
+$dark_blue: #242424;
+$deep_blue: #132a46;
+$sky_blue: #315785;
+$light_blue: #3a4d5c;
+$primary_gradient_1: #0055bd;
+$neutral_gray: #acacac;
+$light_gray: #f3efef;
+$medium_gray: #646464;
+$very_light_blue: #e8f5fc;
+$section_4_8_bg: #f2efef;
+$section_5_capabilities_bg: #1e3d62;
+$section_6_scroller_bg: rgba(28, 148, 156, 1);
+$section_9_bg: rgba(58, 77, 92, 1);
+$section_10_bg: rgb(49, 66, 80);
+
+// Placeholders for text colors
+// Text Colors
+%text-orange {
+  color: $orange;
+}
+%text-medium-gray {
+  color: $medium_gray;
+}
+%text-very_light_blue {
+  color: $very_light_blue;
+}
+%text-white {
+  color: $white;
+}
+%text-dark-blue {
+  color: $dark_blue;
+}
+%text-deep-blue {
+  color: $deep_blue;
+}
+%text-sky-blue {
+  color: $sky_blue;
+}
+%text-light-blue {
+  color: $light_blue;
+}
+%text-neutral-gray {
+  color: $neutral_gray;
+}
+%text-light-gray {
+  color: $light_gray;
+}
+
+// Background Colors
+%bg-orange {
+  background-color: $orange;
+}
+%bg-section_4_8_bg {
+  background-color: $section_4_8_bg;
+}
+
+%bg-medium-gray {
+  background-color: $medium_gray;
+}
+%bg-very_light_blue {
+  background-color: $very_light_blue;
+}
+%bg-white {
+  background-color: $white;
+}
+%bg-dark-blue {
+  background-color: $dark_blue;
+}
+%bg-deep-blue {
+  background-color: $deep_blue;
+}
+%bg-sky-blue {
+  background-color: $sky_blue;
+}
+%bg-light-blue {
+  background-color: $light_blue;
+}
+%bg-neutral-gray {
+  background-color: $neutral_gray;
+}
+%bg-light-gray {
+  background-color: $light_gray;
+}
+%bg-section_5_capabilities_bg {
+  background-color: $section_5_capabilities_bg;
+}
+%bg-primary-gradient {
+  background-image: $primary_gradient_1;
+}
+
+// BTNS
+%btn_base {
+  padding: 0.75rem 3rem;
+}
+%orange_btn {
+  @extend %btn_base;
+  @extend %bg-orange;
+  @extend %text-white;
+  @extend %fw_3;
+
+  &:hover {
+    @extend %bg-white;
+    @extend %text-neutral-gray;
+  }
+}
+%white_btn {
+  @extend %btn_base;
+  @extend %fw_3;
+  @extend %bg-white;
+  @extend %text-neutral-gray;
+  &:hover {
+    @extend %bg-orange;
+    @extend %text-white;
+  }
+}
+%fw_1 {
+  font-weight: 100;
+}
+%fw_2 {
+  font-weight: 200;
+}
+%fw_4 {
+  font-weight: 400;
+}
+
+%fw_3 {
+  font-weight: 300;
+}
+%fw_5 {
+  font-weight: 500;
+}
+%fw_6 {
+  font-weight: 600;
+}
+
+%fw_9 {
+  font-weight: 900;
+}

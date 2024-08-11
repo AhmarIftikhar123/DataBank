@@ -1,0 +1,253 @@
+// Define mixins for each weight
+@mixin font-weight-1 {
+  font-weight: 100;
+}
+@mixin font-weight-2 {
+  font-weight: 200;
+}
+@mixin font-weight-3 {
+  font-weight: 300;
+}
+@mixin font-weight-4 {
+  font-weight: 400;
+}
+
+@mixin font-weight-5 {
+  font-weight: 500;
+}
+
+@mixin font-weight-6 {
+  font-weight: 600;
+}
+
+@mixin font-weight-7 {
+  font-weight: 700;
+}
+
+// Box Shadow
+@mixin box-shadow($shadow_color) {
+  box-shadow: 2px 4px 5px $shadow_color;
+}
+
+@mixin transition($property) {
+  transition: $property 0.2s ease-in-out !important;
+}
+
+// Define Bootstrap CSS breakpoints map
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  "2xl": 1400px,
+);
+
+@mixin bp($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (width <= $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @media (width <= #{$breakpoint}px) {
+      @content;
+    }
+  }
+}
+
+// map for providing values
+
+$values: (
+  0: 0,
+  _125: 0.125rem,
+  _25: 0.25rem,
+  _35: 0.35rem,
+  _45: 0.45rem,
+  _5: 0.5rem,
+  _65: 0.65rem,
+  _75: 0.75rem,
+  _85: 0.85rem,
+  _8: 0.8rem,
+  _9: 0.9rem,
+  _95: 0.95rem,
+  1: 1rem,
+  1_25: 1.25rem,
+  1_35: 1.35rem,
+  1_5: 1.5rem,
+  1_65: 1.65rem,
+  1_75: 1.75rem,
+  1_85: 1.85rem,
+  2: 2rem,
+  2_25: 2.25rem,
+  2_35: 2.35rem,
+  2_5: 2.5rem,
+  2_65: 2.65rem,
+  2_75: 2.75rem,
+  2_85: 2.85rem,
+  3: 3rem,
+  3_25: 3.25rem,
+  3_5: 3.5rem,
+  3_75: 3.75rem,
+  4: 4rem,
+  4_25: 4.25rem,
+  4_5: 4.5rem,
+  4_75: 4.75rem,
+  5: 5rem,
+);
+
+@mixin f_size($value) {
+  font-size: map-get($values, $value);
+}
+
+@mixin p_t($value) {
+  padding-top: map-get($values, $value);
+}
+
+@mixin p_b($value) {
+  padding-bottom: map-get($values, $value);
+}
+
+@mixin p_l($value) {
+  padding-left: map-get($values, $value);
+}
+
+@mixin p_r($value) {
+  padding-right: map-get($values, $value);
+}
+
+@mixin p_x($value1, $value2) {
+  padding-left: map-get($values, $value1);
+  padding-right: map-get($values, $value2);
+}
+
+@mixin p_y($value1, $value2) {
+  padding-top: map-get($values, $value1);
+  padding-bottom: map-get($values, $value2);
+}
+
+@mixin p($value) {
+  padding: map-get($values, $value);
+}
+
+// margin mixins
+@mixin m_t($value) {
+  margin-top: map-get($values, $value);
+}
+
+@mixin m_b($value) {
+  margin-bottom: map-get($values, $value);
+}
+
+@mixin m_l($value) {
+  margin-left: map-get($values, $value);
+}
+
+@mixin m_r($value) {
+  margin-right: map-get($values, $value);
+}
+
+@mixin m_x($value) {
+  margin-left: map-get($values, $value);
+  margin-right: map-get($values, $value);
+}
+
+@mixin m_y($value) {
+  margin-top: map-get($values, $value);
+  margin-bottom: map-get($values, $value);
+}
+
+@mixin m($value) {
+  margin: map-get($values, $value);
+}
+
+@mixin max_h($value) {
+  mvaluesx-height: map-get($values, $value);
+}
+@mixin min_h($value) {
+  min-height: map-get($values, $value);
+}
+@mixin h($value) {
+  height: map-get($values, $value) !important;
+}
+
+@mixin limit-line-number($num) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $num;
+}
+
+// mixin for postioning elements
+@mixin position(
+  $position,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $z-index: null
+) {
+  position: $position;
+
+  @if $top != null {
+    top: $top;
+  }
+
+  @if $right != null {
+    right: $right;
+  }
+
+  @if $bottom != null {
+    bottom: $bottom;
+  }
+
+  @if $left != null {
+    left: $left;
+  }
+
+  @if $z-index != null {
+    z-index: $z-index;
+  }
+}
+
+// Custom mixin function for settings disply flex & grid
+@mixin display(
+  $display,
+  $flex-direction: null,
+  $justify-content: null,
+  $align-items: null,
+  $grid-template-columns: null,
+  $grid-template-rows: null,
+  $gap: null,
+  $place-items: null
+) {
+  display: $display;
+
+  @if $display == flex {
+    @if $flex-direction != null {
+      flex-direction: $flex-direction;
+    }
+    @if $justify-content != null {
+      justify-content: $justify-content;
+    }
+    @if $align-items != null {
+      align-items: $align-items;
+    }
+  }
+
+  @if $display == grid {
+    @if $grid-template-columns != null {
+      grid-template-columns: $grid-template-columns;
+    }
+    @if $grid-template-rows != null {
+      grid-template-rows: $grid-template-rows;
+    }
+    @if $place-items != null {
+      place-items: $place-items;
+    }
+    @if $gap != null {
+      gap: $gap;
+    }
+  }
+}
